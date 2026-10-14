@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caffeistaan | Coffee & More — Specialty Brews, Fresh Bites & Good Times</title>
+  <meta name="description" content="Discover Caffeistaan — specialty coffee, handcrafted teas, gourmet burgers, crispy fries, tandoori grills, and artisanal desserts. Your everyday escape for great taste.">
+  <meta name="theme-color" content="#1D120C">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Caffeistaan | Coffee & More">
+  <meta property="og:description" content="Your everyday escape for great coffee, delicious bites, and good company.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Custom Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            espresso: {
+              900: '#150C07',
+              800: '#1D120C', // Deep base
+              700: '#2A1A12',
+              600: '#3D281D',
+            },
+            cream: {
+              50: '#FDFCF9',
+              100: '#FAF7F2', // Warm Ivory
+              200: '#F3EDE4', // Soft beige
+              300: '#E7DEC8',
+            },
+            caramel: {
+              400: '#E5B884',
+              500: '#D8A46B',
+              600: '#C49258', // Warm caramel
+              700: '#9E6D38',
+            },
+            terracotta: {
+              500: '#DC673B',
+              600: '#C85327', // Burnt Orange Accent
+              700: '#A43E19',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          boxShadow: {
+            'warm': '0 20px 40px -15px rgba(29, 18, 12, 0.08)',
+            'warm-lg': '0 25px 50px -12px rgba(29, 18, 12, 0.16)',
+            'glow': '0 0 35px -5px rgba(200, 83, 39, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF7F2;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D8A46B;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C49258;
+    }
+
+    /* Subtle Glassmorphism */
+    .glass-nav {
+      background: rgba(250, 247, 242, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    
+    .glass-dark {
+      background: rgba(29, 18, 12, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* Hide scrollbar for category tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Subtle image scale effect */
+    .img-zoom {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .group:hover .img-zoom {
+      transform: scale(1.05);
+    }
+
+    /* Veg / Non-Veg Icons */
+    .veg-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #16A34A;
+    }
+    .nonveg-triangle {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 9px solid #DC2626;
+    }
+  </style>
+</head>
+
+<body class="bg-cream-100 text-espresso-800 font-sans antialiased selection:bg-caramel-500 selection:text-white">
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-40 transition-all duration-300 glass-nav border-b border-caramel-500/20 shadow-sm" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Wordmark -->
+      <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-10 h-10 rounded-full bg-espresso-800 text-caramel-400 flex items-center justify-center shadow-sm group-hover:bg-terracotta-600 transition-colors duration-300">
+          <i data-lucide="coffee" class="w-5 h-5"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl md:text-3xl font-bold tracking-tight text-espresso-800 leading-none">Caffeistaan</span>
+          <span class="text-[10px] font-semibold tracking-[0.25em] uppercase text-caramel-700 mt-1">Coffee &amp; More</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-espresso-700">
+        <a href="#hero" class="hover:text-terracotta-600 transition-colors py-1">Home</a>
+        <a href="#menu" class="hover:text-terracotta-600 transition-colors py-1">Menu</a>
+        <a href="#signatures" class="hover:text-terracotta-600 transition-colors py-1">Signatures</a>
+        <a href="#about" class="hover:text-terracotta-600 transition-colors py-1">Our Story</a>
+        <a href="#experience" class="hover:text-terracotta-600 transition-colors py-1">Experience</a>
+        <a href="#gallery" class="hover:text-terracotta-600 transition-colors py-1">Gallery</a>
+        <a href="#visit" class="hover:text-terracotta-600 transition-colors py-1">Visit Us</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="#contact" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-terracotta-600 hover:bg-terracotta-700 shadow-sm transition-all transform active:scale-95 hover:shadow-glow">
+          <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+          <span>Enquire / Book</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <div class="flex items-center gap-2 md:hidden">
+        <a href="#menu" class="p-2 rounded-full text-espresso-800 hover:bg-cream-200">
+          <i data-lucide="utensils" class="w-5 h-5"></i>
+        </a>
+        <button id="mobileMenuBtn" aria-label="Toggle navigation menu" class="p-2 rounded-lg text-espresso-800 hover:bg-cream-200 focus:outline-none">
+          <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-caramel-500/20 bg-cream-50 px-4 pt-3 pb-6 space-y-2 shadow-lg">
+      <a href="#hero" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-espresso-800 hover:bg-cream-200">Home</a>
+      <a href="#menu" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-espresso-800 hover:bg-cream-200">Our Menu</a>
+      <a href="#signatures" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-espresso-800 hover:bg-cream-200">Signature Picks</a>
+      <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-espresso-800 hover:bg-cream-200">About Caffeistaan</a>
+      <a href="#experience" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-espresso-800 hover:bg-cream-200">The Experience</a>
+      <a href="#gallery" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-espresso-800 hover:bg-cream-200">Food Gallery</a>
+      <a href="#visit" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-espresso-800 hover:bg-cream-200">Locations &amp; Hours</a>
+      <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-terracotta-600 hover:bg-cream-200 font-semibold">Reserve / Contact Us</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-28 bg-gradient-to-b from-cream-100 via-cream-50 to-cream-100">
+      
+      <!-- Decorative background blur elements -->
+      <div class="absolute top-1/4 -left-20 w-80 h-80 bg-caramel-400/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-10 -right-20 w-96 h-96 bg-terracotta-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Hero Copy Left -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream-200 border border-caramel-500/30 text-caramel-700 text-xs font-semibold tracking-wide uppercase">
+              <span class="w-2 h-2 rounded-full bg-terracotta-600 animate-pulse"></span>
+              Freshly Brewed &amp; Freshly Grilled
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-espresso-900 leading-[1.12]">
+              Caffeistaan
+              <span class="block text-2xl sm:text-3xl md:text-4xl font-normal italic text-caramel-700 font-serif mt-2">
+                Coffee &amp; More.
+              </span>
+            </h1>
+
+            <p class="text-base sm:text-lg md:text-xl text-espresso-700/90 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+              Your everyday escape for great coffee, delicious bites, and good company. From velvety flat whites and artisanal teas to gourmet burgers, golden fries, and sizzling tandoori grills.
+            </p>
+
+            <!-- Hero Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
+              <a href="#menu" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-sm font-semibold tracking-wide text-white bg-terracotta-600 hover:bg-terracotta-700 transition duration-200 shadow-md hover:shadow-glow transform active:scale-98">
+                <span>Explore Our Menu</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+              <a href="#visit" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-sm font-semibold tracking-wide text-espresso-800 bg-cream-50 hover:bg-white border border-caramel-500/40 transition duration-200 shadow-sm hover:shadow">
+                <i data-lucide="map-pin" class="w-4 h-4 text-caramel-600"></i>
+                <span>Find Your Café</span>
+              </a>
+            </div>
+
+            <!-- Mini Trust Badges -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-caramel-500/20 max-w-lg mx-auto lg:mx-0 text-left">
+              <div>
+                <span class="block font-serif text-2xl font-bold text-espresso-900">100%</span>
+                <span class="text-xs text-espresso-700/80">Arabica Beans</span>
+              </div>
+              <div>
+                <span class="block font-serif text-2xl font-bold text-espresso-900">11+</span>
+                <span class="text-xs text-espresso-700/80">Food Categories</span>
+              </div>
+              <div>
+                <span class="block font-serif text-2xl font-bold text-espresso-900">Daily</span>
+                <span class="text-xs text-espresso-700/80">Fresh Baked &amp; Grilled</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual Right (Editorial Collage) -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              
+              <!-- Main Hero Image: Signature Coffee Cup -->
+              <div class="relative rounded-3xl overflow-hidden shadow-warm-lg border-4 border-cream-50 aspect-[4/5] bg-espresso-700">
+                <img 
+                  src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80" 
+                  alt="Artisanal Latte Art in a ceramic cup at Caffeistaan" 
+                  class="w-full h-full object-cover img-zoom"
+                  loading="eager"
+                  onerror="this.src='https://placehold.co/800x1000/281811/FAF7F2?text=Caffeistaan+Coffee'"
+                >
+                <div class="absolute inset-0 bg-gradient-to-t from-espresso-900/60 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                  <span class="px-2.5 py-1 rounded bg-caramel-600 text-[11px] font-semibold tracking-wider uppercase">Crafted With Passion</span>
+                  <p class="font-serif text-xl font-bold mt-1">Specialty Espresso &amp; Pour-Overs</p>
+                </div>
+              </div>
+
+              <!-- Overlapping Floating Card 1: Artisanal Burger -->
+              <div class="absolute -bottom-6 -left-6 sm:-left-8 bg-cream-50 p-3.5 rounded-2xl shadow-warm border border-caramel-500/20 max-w-[210px] hidden sm:flex items-center gap-3">
+                <img 
+                  src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=200&q=80" 
+                  alt="Gourmet Burger" 
+                  class="w-14 h-14 rounded-xl object-cover shrink-0"
+                  onerror="this.src='https://placehold.co/200x200/281811/FAF7F2?text=Burger'"
+                >
+                <div>
+                  <p class="text-xs font-bold text-espresso-900">Brioche Burgers</p>
+                  <p class="text-[11px] text-caramel-700">Freshly griddled</p>
+                  <div class="flex items-center text-amber-500 text-[10px] mt-0.5">
+                    ★★★★★
+                  </div>
+                </div>
+              </div>
+
+              <!-- Overlapping Floating Card 2: Fresh Brownie Badge -->
+              <div class="absolute -top-4 -right-4 sm:-right-6 bg-espresso-800 text-cream-100 p-4 rounded-2xl shadow-warm border border-espresso-700 hidden sm:block text-center">
+                <i data-lucide="sparkles" class="w-5 h-5 text-caramel-400 mx-auto mb-1"></i>
+                <p class="text-[10px] uppercase font-bold tracking-widest text-caramel-400">Sweet Bites</p>
+                <p class="font-serif text-sm font-semibold">Warm Brownies &amp; Tea</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNATURE PICKS SECTION -->
+    <section id="signatures" class="py-16 lg:py-24 bg-cream-50 border-y border-caramel-500/15">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <span class="text-xs font-bold tracking-widest uppercase text-terracotta-600 block mb-2">Curated Delights</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-espresso-900">Signature Picks</h2>
+            <p class="text-espresso-700 mt-2 max-w-xl text-sm sm:text-base">
+              Hand-picked favourites celebrating the dual spirit of Caffeistaan: masterfully roasted specialty coffee paired with wholesome, sizzling comfort food.
+            </p>
+          </div>
+          <div class="mt-4 md:mt-0">
+            <a href="#menu" class="inline-flex items-center gap-1.5 text-sm font-semibold text-terracotta-600 hover:text-terracotta-700 transition">
+              <span>View full 11 categories</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Signature Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Card 1: Cortado/Espresso -->
+          <div class="bg-cream-100 rounded-2xl overflow-hidden border border-caramel-500/20 shadow-sm hover:shadow-warm transition duration-300 group flex flex-col justify-between">
+            <div class="relative aspect-[4/3] overflow-hidden bg-espresso-700">
+              <img 
+                src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80" 
+                alt="Signature Caffeistaan Coffee" 
+                class="w-full h-full object-cover img-zoom"
+                loading="lazy"
+                onerror="this.src='https://placehold.co/600x400/281811/FAF7F2?text=Signature+Coffee'"
+              >
+              <span class="absolute top-3 left-3 bg-espresso-900/80 text-caramel-400 text-[10px] font-bold px-2.5 py-1 rounded backdrop-blur uppercase tracking-wider">
+                Coffee House Special
+              </span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <h3 class="font-serif text-lg font-bold text-espresso-900 group-hover:text-terracotta-600 transition">Signature Velvet Cortado</h3>
+                  <div class="w-4 h-4 border border-green-600 flex items-center justify-center p-0.5 rounded-sm" title="Vegetarian">
+                    <div class="veg-dot"></div>
+                  </div>
+                </div>
+                <p class="text-xs text-espresso-700/80 leading-relaxed mb-4">
+                  Double ristretto cut with silky textured warm milk and a pinch of raw demerara caramelization.
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-caramel-500/20">
+                <span class="font-semibold text-sm text-espresso-900">₹119 <span class="text-[10px] font-normal text-espresso-600">(Sample)</span></span>
+                <button onclick="quickOrderNotice('Signature Velvet Cortado')" class="text-xs font-semibold text-terracotta-600 hover:text-terracotta-700">
+                  Quick View &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Gourmet Brioche Burger -->
+          <div class="bg-cream-100 rounded-2xl overflow-hidden border border-caramel-500/20 shadow-sm hover:shadow-warm transition duration-300 group flex flex-col justify-between">
+            <div class="relative aspect-[4/3] overflow-hidden bg-espresso-700">
+              <img 
+                src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80" 
+                alt="Gourmet Burger" 
+                class="w-full h-full object-cover img-zoom"
+                loading="lazy"
+                onerror="this.src='https://placehold.co/600x400/281811/FAF7F2?text=Gourmet+Burger'"
+              >
+              <span class="absolute top-3 left-3 bg-terracotta-600 text-white text-[10px] font-bold px-2.5 py-1 rounded shadow-sm uppercase tracking-wider">
+                Chef's Pick
+              </span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <h3 class="font-serif text-lg font-bold text-espresso-900 group-hover:text-terracotta-600 transition">Caffeistaan Monster Burger</h3>
+                  <div class="w-4 h-4 border border-red-600 flex items-center justify-center p-0.5 rounded-sm" title="Non-Vegetarian">
+                    <div class="nonveg-triangle"></div>
+                  </div>
+                </div>
+                <p class="text-xs text-espresso-700/80 leading-relaxed mb-4">
+                  Toasted butter brioche, caramelized onions, house smokey barbecue relish, melted cheddar.
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-caramel-500/20">
+                <span class="font-semibold text-sm text-espresso-900">₹149 <span class="text-[10px] font-normal text-espresso-600">(Sample)</span></span>
+                <button onclick="quickOrderNotice('Caffeistaan Monster Burger')" class="text-xs font-semibold text-terracotta-600 hover:text-terracotta-700">
+                  Quick View &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Chicken Tandoori Sizzler -->
+          <div class="bg-cream-100 rounded-2xl overflow-hidden border border-caramel-500/20 shadow-sm hover:shadow-warm transition duration-300 group flex flex-col justify-between">
+            <div class="relative aspect-[4/3] overflow-hidden bg-espresso-700">
+              <img 
+                src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80" 
+                alt="Chicken Tandoori Sizzler" 
+                class="w-full h-full object-cover img-zoom"
+                loading="lazy"
+                onerror="this.src='https://placehold.co/600x400/281811/FAF7F2?text=Chicken+Tandoori'"
+              >
+              <span class="absolute top-3 left-3 bg-espresso-900/80 text-caramel-400 text-[10px] font-bold px-2.5 py-1 rounded backdrop-blur uppercase tracking-wider">
+                Clay Oven Fresh
+              </span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <h3 class="font-serif text-lg font-bold text-espresso-900 group-hover:text-terracotta-600 transition">Smoky Chicken Tandoori</h3>
+                  <div class="w-4 h-4 border border-red-600 flex items-center justify-center p-0.5 rounded-sm" title="Non-Vegetarian">
+                    <div class="nonveg-triangle"></div>
+                  </div>
+                </div>
+                <p class="text-xs text-espresso-700/80 leading-relaxed mb-4">
+                  Marinated in hung yoghurt, Kashmiri chili &amp; hand-ground spice blend, charred over open flames.
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-caramel-500/20">
+                <span class="font-semibold text-sm text-espresso-900">₹449 <span class="text-[10px] font-normal text-espresso-600">(Sample)</span></span>
+                <button onclick="quickOrderNotice('Smoky Chicken Tandoori')" class="text-xs font-semibold text-terracotta-600 hover:text-terracotta-700">
+                  Quick View &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Fudgy Chocolate Brownie -->
+          <div class="bg-cream-100 rounded-2xl overflow-hidden border border-caramel-500/20 shadow-sm hover:shadow-warm transition duration-300 group flex flex-col justify-between">
+            <div class="relative aspect-[4/3] overflow-hidden bg-espresso-700">
+              <img 
+                src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80" 
+                alt="Fudge Brownie" 
+                class="w-full h-full object-cover img-zoom"
+                loading="lazy"
+                onerror="this.src='https://placehold.co/600x400/281811/FAF7F2?text=Fudge+Brownie'"
+              >
+              <span class="absolute top-3 left-3 bg-espresso-900/80 text-caramel-400 text-[10px] font-bold px-2.5 py-1 rounded backdrop-blur uppercase tracking-wider">
+                Freshly Baked
+              </span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <h3 class="font-serif text-lg font-bold text-espresso-900 group-hover:text-terracotta-600 transition">Dark Belgian Brownie</h3>
+                  <div class="w-4 h-4 border border-green-600 flex items-center justify-center p-0.5 rounded-sm" title="Vegetarian">
+                    <div class="veg-dot"></div>
+                  </div>
+                </div>
+                <p class="text-xs text-espresso-700/80 leading-relaxed mb-4">
+                  70% dark Belgian cocoa with roasted walnuts and warm bittersweet ganache drizzle.
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-caramel-500/20">
+                <span class="font-semibold text-sm text-espresso-900">₹79 <span class="text-[10px] font-normal text-espresso-600">(Sample)</span></span>
+                <button onclick="quickOrderNotice('Dark Belgian Brownie')" class="text-xs font-semibold text-terracotta-600 hover:text-terracotta-700">
+                  Quick View &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE MENU SECTION -->
+    <section id="menu" class="py-16 lg:py-24 bg-cream-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs font-bold tracking-widest uppercase text-terracotta-600 block mb-2">Taste Everything</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-espresso-900">Explore Our Menu</h2>
+          <p class="text-espresso-700 mt-3 text-sm sm:text-base">
+            From sunrise brews to late-evening barbecue sizzles. Select a category below or search for your craving.
+          </p>
+
+          <!-- Search & Filter Controls -->
+          <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-lg mx-auto">
+            <div class="relative w-full">
+              <i data-lucide="search" class="w-4 h-4 text-espresso-600 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+              <input 
+                type="text" 
+                id="menuSearchInput" 
+                placeholder="Search coffee, burger, tandoori, fries..." 
+                class="w-full pl-10 pr-4 py-2.5 rounded-full border border-caramel-500/30 bg-cream-50 text-xs sm:text-sm text-espresso-900 placeholder-espresso-600/70 focus:outline-none focus:ring-2 focus:ring-caramel-500 focus:bg-white shadow-inner"
+              >
+            </div>
+            
+            <div class="flex items-center gap-2 w-full sm:w-auto shrink-0 justify-center">
+              <label class="inline-flex items-center gap-1.5 cursor-pointer text-xs font-medium text-espresso-800 bg-cream-50 px-3 py-2 rounded-full border border-caramel-500/20">
+                <input type="checkbox" id="vegOnlyFilter" class="rounded text-green-600 focus:ring-0">
+                <span>Veg Only</span>
+              </label>
+              <button id="resetFilterBtn" class="text-xs text-espresso-600 hover:text-terracotta-600 font-medium px-2 py-2 underline">
+                Clear
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs (Horizontal Scrollable) -->
+        <div class="relative mb-10">
+          <div id="categoryTabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 px-1 sm:justify-center">
+            <!-- Dynamically populated categories -->
+          </div>
+        </div>
+
+        <!-- Menu Items Grid -->
+        <div id="menuItemsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamically Populated by JavaScript -->
+        </div>
+
+        <!-- Empty State for Search / Filter -->
+        <div id="menuEmptyState" class="hidden text-center py-16 bg-cream-50 rounded-3xl border border-dashed border-caramel-500/30">
+          <i data-lucide="coffee" class="w-10 h-10 text-caramel-500 mx-auto mb-3"></i>
+          <h4 class="font-serif text-lg font-bold text-espresso-900">No items match your search</h4>
+          <p class="text-xs text-espresso-600 mt-1 max-w-sm mx-auto">Try resetting the vegetarian toggle or search for another keyword like "Burger", "Coffee", or "Tandoori".</p>
+          <button onclick="resetMenuFilters()" class="mt-4 px-4 py-2 bg-espresso-800 text-cream-100 text-xs font-semibold rounded-full hover:bg-espresso-900">
+            View All Categories
+          </button>
+        </div>
+
+        <!-- Central Data Note -->
+        <div class="mt-12 text-center text-xs text-espresso-600/80 bg-cream-200/50 p-4 rounded-xl max-w-xl mx-auto border border-caramel-500/20">
+          <p>📌 <strong>Editable Menu Placeholder Notice:</strong> All prices and descriptions shown are structured sample placeholders for web staging. Update <code class="font-mono text-terracotta-600 font-semibold">CAFFEISTAAN_MENU</code> in one clean place to reflect your finalized in-store menu.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-16 lg:py-24 bg-cream-50 overflow-hidden border-t border-caramel-500/15">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Image Split Column -->
+          <div class="lg:col-span-6 relative">
+            <div class="relative mx-auto">
+              <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-warm-lg border-2 border-caramel-500/20 bg-espresso-800">
+                <img 
+                  src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=80" 
+                  alt="Cozy ambient café seating at Caffeistaan" 
+                  class="w-full h-full object-cover img-zoom"
+                  loading="lazy"
+                  onerror="this.src='https://placehold.co/800x1000/281811/FAF7F2?text=About+Caffeistaan'"
+                >
+              </div>
+
+              <!-- Overlaid Editorial Card -->
+              <div class="absolute -bottom-8 -right-4 sm:-right-8 bg-espresso-900 text-cream-100 p-6 rounded-2xl shadow-warm max-w-xs border border-espresso-700 hidden sm:block">
+                <p class="font-serif italic text-base sm:text-lg text-caramel-400">
+                  "Coffee is our craft, conversation is our culture."
+                </p>
+                <div class="mt-3 flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-caramel-600/30 flex items-center justify-center text-caramel-400">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-cream-100">Caffeistaan</p>
+                    <p class="text-[11px] text-cream-300">Coffee &amp; More</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Story Text Column -->
+          <div class="lg:col-span-6 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cream-200 border border-caramel-500/30 text-caramel-700 text-xs font-semibold tracking-wider uppercase">
+              Brand Story
+            </div>
+
+            <h2 class="font-serif text-3xl sm:text-5xl font-bold text-espresso-900 leading-tight">
+              A Warm Corner for <br class="hidden sm:inline">Stories, Sips &amp; Sizzles.
+            </h2>
+
+            <p class="text-base text-espresso-700 leading-relaxed font-light">
+              Welcome to <strong class="font-semibold text-espresso-900">Caffeistaan</strong>. We set out to create more than just a quick beverage counter—a welcoming sanctuary where the rich aroma of freshly pulled espresso blends seamlessly with the laughter of shared tables and the sizzle of comforting meals.
+            </p>
+
+            <p class="text-base text-espresso-700 leading-relaxed font-light">
+              Whether you are dropping in for a quiet mid-morning cappuccino and work break, gathering with friends over crisp french fries and barbecued treats, or indulging in warm fudgy brownies after a busy day, Caffeistaan is designed as your friendly neighbourhood haven.
+            </p>
+
+            <!-- Three Brand Pillars -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+              <div class="p-4 rounded-xl bg-cream-100 border border-caramel-500/20">
+                <i data-lucide="sparkle" class="w-5 h-5 text-terracotta-600 mb-2"></i>
+                <h4 class="font-serif font-bold text-espresso-900 text-sm">Specialty Coffee</h4>
+                <p class="text-[11px] text-espresso-600 mt-1">Carefully calibrated roasts, velvety textures, and authentic pour-overs.</p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-cream-100 border border-caramel-500/20">
+                <i data-lucide="flame" class="w-5 h-5 text-terracotta-600 mb-2"></i>
+                <h4 class="font-serif font-bold text-espresso-900 text-sm">Diverse Bites</h4>
+                <p class="text-[11px] text-espresso-600 mt-1">Comforting burgers, crispy fries, fresh fish, and tandoori grills.</p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-cream-100 border border-caramel-500/20">
+                <i data-lucide="smile" class="w-5 h-5 text-terracotta-600 mb-2"></i>
+                <h4 class="font-serif font-bold text-espresso-900 text-sm">Warm Hospitality</h4>
+                <p class="text-[11px] text-espresso-600 mt-1">A cozy space made for real conversations and unhurried afternoons.</p>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <a href="#visit" class="inline-flex items-center gap-2 text-sm font-semibold text-espresso-900 hover:text-terracotta-600 transition">
+                <span>Learn about our visiting hours and seating</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="py-16 lg:py-24 bg-cream-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-bold tracking-widest uppercase text-terracotta-600 block mb-2">The Atmosphere</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-espresso-900">The Caffeistaan Experience</h2>
+          <p class="text-espresso-700 mt-3 text-sm sm:text-base">
+            Every hour of the day brings its own flavour. Discover moments created for quiet focus, lively meetups, or sweet cravings.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Experience Card 1 -->
+          <div class="bg-cream-50 rounded-2xl p-6 border border-caramel-500/20 shadow-sm hover:shadow-warm transition group">
+            <div class="w-12 h-12 rounded-xl bg-caramel-500/20 text-caramel-700 flex items-center justify-center mb-4 group-hover:bg-terracotta-600 group-hover:text-white transition">
+              <i data-lucide="sun" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-espresso-900 mb-2">Your Morning Ritual</h3>
+            <p class="text-xs text-espresso-700 leading-relaxed">
+              Start early with the comforting aroma of hand-pulled espresso, steaming herbal tea, and warm toasted breakfast sandwiches.
+            </p>
+          </div>
+
+          <!-- Experience Card 2 -->
+          <div class="bg-cream-50 rounded-2xl p-6 border border-caramel-500/20 shadow-sm hover:shadow-warm transition group">
+            <div class="w-12 h-12 rounded-xl bg-caramel-500/20 text-caramel-700 flex items-center justify-center mb-4 group-hover:bg-terracotta-600 group-hover:text-white transition">
+              <i data-lucide="users" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-espresso-900 mb-2">Catch Up with Friends</h3>
+            <p class="text-xs text-espresso-700 leading-relaxed">
+              Generous sharing platters of golden french fries, barbecue wings, and burgers made for easy laughs and long catchups.
+            </p>
+          </div>
+
+          <!-- Experience Card 3 -->
+          <div class="bg-cream-50 rounded-2xl p-6 border border-caramel-500/20 shadow-sm hover:shadow-warm transition group">
+            <div class="w-12 h-12 rounded-xl bg-caramel-500/20 text-caramel-700 flex items-center justify-center mb-4 group-hover:bg-terracotta-600 group-hover:text-white transition">
+              <i data-lucide="flame" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-espresso-900 mb-2">Savory Evenings</h3>
+            <p class="text-xs text-espresso-700 leading-relaxed">
+              As dusk settles, our clay-oven tandoori chicken and grilled fish come to life, delivering rich, smoky flavors.
+            </p>
+          </div>
+
+          <!-- Experience Card 4 -->
+          <div class="bg-cream-50 rounded-2xl p-6 border border-caramel-500/20 shadow-sm hover:shadow-warm transition group">
+            <div class="w-12 h-12 rounded-xl bg-caramel-500/20 text-caramel-700 flex items-center justify-center mb-4 group-hover:bg-terracotta-600 group-hover:text-white transition">
+              <i data-lucide="cake" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-espresso-900 mb-2">Sweet Endings</h3>
+            <p class="text-xs text-espresso-700 leading-relaxed">
+              Handcrafted cupcakes, warm dark brownies, and seasonal confections to pair with your evening pour-over or milk foam brew.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-16 lg:py-24 bg-cream-50 border-t border-caramel-500/15">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-bold tracking-widest uppercase text-terracotta-600 block mb-2">Visual Palette</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-espresso-900">Food &amp; Café Gallery</h2>
+          <p class="text-espresso-700 mt-2 text-sm sm:text-base">
+            A glimpse into what’s cooking and brewing at Caffeistaan. Tap any photograph to view high resolution.
+          </p>
+        </div>
+
+        <!-- Responsive Masonry/Mosaic Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          
+          <!-- Item 1: Espresso Pour -->
+          <div class="relative rounded-2xl overflow-hidden aspect-square bg-espresso-800 cursor-pointer group shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=85', 'Specialty Espresso Shot extraction')">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600&q=80" alt="Specialty Espresso Extraction" class="w-full h-full object-cover img-zoom" loading="lazy">
+            <div class="absolute inset-0 bg-espresso-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <!-- Item 2: Golden French Fries -->
+          <div class="relative rounded-2xl overflow-hidden aspect-square bg-espresso-800 cursor-pointer group shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=1200&q=85', 'Crispy Golden Herb French Fries')">
+            <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=600&q=80" alt="Crispy French Fries" class="w-full h-full object-cover img-zoom" loading="lazy">
+            <div class="absolute inset-0 bg-espresso-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <!-- Item 3: Tea being poured -->
+          <div class="relative rounded-2xl overflow-hidden aspect-square bg-espresso-800 cursor-pointer group shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=1200&q=85', 'Freshly brewed loose leaf tea')">
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="Fresh Tea Pour" class="w-full h-full object-cover img-zoom" loading="lazy">
+            <div class="absolute inset-0 bg-espresso-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <!-- Item 4: Gourmet Burger close-up -->
+          <div class="relative rounded-2xl overflow-hidden aspect-square bg-espresso-800 cursor-pointer group shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=1200&q=85', 'Artisan Toasted Brioche Burger')">
+            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Gourmet Burger Close-up" class="w-full h-full object-cover img-zoom" loading="lazy">
+            <div class="absolute inset-0 bg-espresso-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <!-- Item 5: Tandoori Skewers / Grill -->
+          <div class="relative rounded-2xl overflow-hidden aspect-square bg-espresso-800 cursor-pointer group shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=85', 'Charcoal Barbecue & Grills')">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Charcoal Barbecue Grill" class="w-full h-full object-cover img-zoom" loading="lazy">
+            <div class="absolute inset-0 bg-espresso-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <!-- Item 6: Grilled Fish Plate -->
+          <div class="relative rounded-2xl overflow-hidden aspect-square bg-espresso-800 cursor-pointer group shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1200&q=85', 'Pan seared grilled fish with herbs')">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80" alt="Grilled Fish" class="w-full h-full object-cover img-zoom" loading="lazy">
+            <div class="absolute inset-0 bg-espresso-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <!-- Item 7: Handcrafted Cupcakes -->
+          <div class="relative rounded-2xl overflow-hidden aspect-square bg-espresso-800 cursor-pointer group shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=1200&q=85', 'Handcrafted Frosted Cupcakes')">
+            <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=600&q=80" alt="Frosted Cupcakes" class="w-full h-full object-cover img-zoom" loading="lazy">
+            <div class="absolute inset-0 bg-espresso-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <!-- Item 8: Warm Chocolate Brownie & Ice Cream -->
+          <div class="relative rounded-2xl overflow-hidden aspect-square bg-espresso-800 cursor-pointer group shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1624353365286-3f8d62daad51?auto=format&fit=crop&w=1200&q=85', 'Warm Chocolate Brownie with Vanilla scoop')">
+            <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?auto=format&fit=crop&w=600&q=80" alt="Warm Chocolate Brownie" class="w-full h-full object-cover img-zoom" loading="lazy">
+            <div class="absolute inset-0 bg-espresso-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VISIT US SECTION -->
+    <section id="visit" class="py-16 lg:py-24 bg-cream-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Contact Info Left -->
+          <div class="lg:col-span-5 space-y-6">
+            <div>
+              <span class="text-xs font-bold tracking-widest uppercase text-terracotta-600 block mb-2">Find Your Table</span>
+              <h2 class="font-serif text-3xl sm:text-4xl font-bold text-espresso-900">Visit Caffeistaan</h2>
+              <p class="text-espresso-700 text-sm mt-2">
+                Come say hello. Drop by for your morning brew or book a cozy corner for your evening gathering.
+              </p>
+            </div>
+
+            <!-- Address Card (Config Placeholder) -->
+            <div class="bg-cream-50 p-5 rounded-2xl border border-caramel-500/20 shadow-sm space-y-4">
+              
+              <div class="flex items-start gap-3.5">
+                <div class="p-2.5 rounded-xl bg-cream-200 text-terracotta-600 shrink-0">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-espresso-900">Café Address</h4>
+                  <p class="text-xs sm:text-sm text-espresso-700 mt-1 font-mono bg-cream-200/50 p-1.5 rounded" id="displayAddress">
+                    Upper Market Keller, Shopian, 192303
+                  </p>
+                  <span class="text-[10px] text-caramel-700">Please visit in opening hours only.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5 pt-3 border-t border-caramel-500/15">
+                <div class="p-2.5 rounded-xl bg-cream-200 text-terracotta-600 shrink-0">
+                  <i data-lucide="clock" class="w-5 h-5"></i>
+                </div>
+                <div class="w-full">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-espresso-900">Opening Hours</h4>
+                  <ul class="text-xs text-espresso-700 mt-1 space-y-1">
+                    <li class="flex justify-between"><span>Mon – Fri:</span> <span class="font-semibold text-espresso-900">08:00 AM – 10:30 PM</span></li>
+                    <li class="flex justify-between"><span>Saturday:</span> <span class="font-semibold text-espresso-900">08:00 AM – 11:30 PM</span></li>
+                    <li class="flex justify-between"><span>Sunday:</span> <span class="font-semibold text-espresso-900">09:00 AM – 11:00 PM</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5 pt-3 border-t border-caramel-500/15">
+                <div class="p-2.5 rounded-xl bg-cream-200 text-terracotta-600 shrink-0">
+                  <i data-lucide="phone-call" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-espresso-900">Phone &amp; Orders</h4>
+                  <p class="text-xs sm:text-sm text-espresso-700 mt-1 font-mono" id="displayPhone">
+                    +91 99106 76661
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5 pt-3 border-t border-caramel-500/15">
+                <div class="p-2.5 rounded-xl bg-cream-200 text-terracotta-600 shrink-0">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-espresso-900">Direct Email</h4>
+                  <p class="text-xs sm:text-sm text-espresso-700 mt-1 font-mono" id="displayEmail">
+                    hello@caffeistaan.com
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Social Handles Links -->
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-semibold text-espresso-800">Follow Our Gram:</span>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cream-50 border border-caramel-500/20 text-xs font-medium text-espresso-800 hover:text-terracotta-600 transition">
+                <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
+                <span>@caffeistaan</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Stylized Interactive Map Card Right -->
+          <div class="lg:col-span-7">
+            <div class="bg-cream-50 p-4 sm:p-6 rounded-3xl border border-caramel-500/20 shadow-warm">
+              <div class="relative w-full h-[380px] rounded-2xl overflow-hidden bg-espresso-900 flex flex-col items-center justify-center text-center p-6 text-cream-100 group">
+                
+                <!-- Background Map Texture/Artwork -->
+                <div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#FAF7F2_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                
+                <div class="relative z-10 max-w-md space-y-4">
+                  <div class="w-16 h-16 rounded-full bg-terracotta-600/90 text-white flex items-center justify-center mx-auto shadow-glow animate-bounce">
+                    <i data-lucide="map-pin" class="w-8 h-8"></i>
+                  </div>
+
+                  <h3 class="font-serif text-2xl font-bold text-cream-50">Caffeistaan Café</h3>
+                  <p class="text-xs sm:text-sm text-cream-200">
+                    Vidit the cafe below.
+                  </p>
+
+                  <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+                    <a href="https://maps.app.goo.gl/S6rVfg9MXsSC57SDA?g_st=awb" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-caramel-500 hover:bg-caramel-600 text-espresso-950 font-semibold text-xs transition shadow">
+                      Open in Google Maps &rarr;
+                    </a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-espresso-800 hover:bg-espresso-700 text-cream-100 text-xs border border-espresso-600 transition">
+                      Get Directions / Enquire
+                    </a>
+                  </div>
+                </div>
+
+                <div class="absolute bottom-3 right-4 text-[10px] text-cream-400 font-mono">
+                  GPS placeholder: 40.7128° N, 74.0060° W
+                </div>
+              </div>
+
+              <div class="mt-4 flex items-center justify-between text-xs text-espresso-600 px-1">
+                <span>📍 Indoor &amp; Curbside Pickups Supported</span>
+                <span class="text-green-600 font-semibold flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-green-500"></span> Open Today
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT / ENQUIRY SECTION -->
+    <section id="contact" class="py-16 lg:py-24 bg-cream-50 border-t border-caramel-500/15">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <span class="text-xs font-bold tracking-widest uppercase text-terracotta-600 block mb-2">Get in Touch</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-espresso-900">Enquiries &amp; Table Bookings</h2>
+          <p class="text-espresso-700 text-xs sm:text-sm mt-2">
+            Planning a casual meet, table reservation, birthday gathering, or corporate lunch? Send us a quick note and our team will get right back to you.
+          </p>
+        </div>
+
+        <!-- Form Card -->
+        <div class="bg-cream-100 p-6 sm:p-10 rounded-3xl border border-caramel-500/25 shadow-warm">
+          
+          <form id="enquiryForm" onsubmit="handleEnquirySubmit(event)" novalidate class="space-y-6">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <!-- Customer Name -->
+              <div>
+                <label for="custName" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
+                  Your Full Name <span class="text-terracotta-600">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="custName" 
+                  name="name" 
+                  required 
+                  placeholder="e.g. Alex Morgan" 
+                  class="w-full px-4 py-3 rounded-xl border border-caramel-500/30 bg-cream-50 text-sm text-espresso-900 placeholder-espresso-700/40 focus:outline-none focus:ring-2 focus:ring-caramel-500 transition"
+                >
+                <p id="errName" class="text-[11px] text-terracotta-600 mt-1 hidden">Please provide your name.</p>
+              </div>
+
+              <!-- Contact Phone / Email -->
+              <div>
+                <label for="custContact" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
+                  Phone or Email <span class="text-terracotta-600">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="custContact" 
+                  name="contact" 
+                  required 
+                  placeholder="e.g. alex@example.com or +1 555-..." 
+                  class="w-full px-4 py-3 rounded-xl border border-caramel-500/30 bg-cream-50 text-sm text-espresso-900 placeholder-espresso-700/40 focus:outline-none focus:ring-2 focus:ring-caramel-500 transition"
+                >
+                <p id="errContact" class="text-[11px] text-terracotta-600 mt-1 hidden">Please enter a valid phone number or email.</p>
+              </div>
+
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <!-- Enquiry Type -->
+              <div>
+                <label for="enquiryType" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
+                  Enquiry Type
+                </label>
+                <select 
+                  id="enquiryType" 
+                  name="type" 
+                  class="w-full px-4 py-3 rounded-xl border border-caramel-500/30 bg-cream-50 text-sm text-espresso-900 focus:outline-none focus:ring-2 focus:ring-caramel-500 transition"
+                >
+                  <option value="table_booking">Table Reservation</option>
+                  <option value="group_gathering">Birthday / Friend Gathering</option>
+                  <option value="catering">Bulk Order / Party Catering</option>
+                  <option value="general_feedback">General Question / Feedback</option>
+                </select>
+              </div>
+
+              <!-- Preferred Date & Guests -->
+              <div>
+                <label for="guestsCount" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
+                  Party Size / Guests
+                </label>
+                <input 
+                  type="number" 
+                  id="guestsCount" 
+                  name="guests" 
+                  min="1" 
+                  max="50" 
+                  value="2" 
+                  class="w-full px-4 py-3 rounded-xl border border-caramel-500/30 bg-cream-50 text-sm text-espresso-900 focus:outline-none focus:ring-2 focus:ring-caramel-500 transition"
+                >
+              </div>
+
+            </div>
+
+            <!-- Message Box -->
+            <div>
+              <label for="custMessage" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
+                Message / Special Requests
+              </label>
+              <textarea 
+                id="custMessage" 
+                name="message" 
+                rows="4" 
+                placeholder="Let us know your preferred timing, dietary preferences, or questions..." 
+                class="w-full px-4 py-3 rounded-xl border border-caramel-500/30 bg-cream-50 text-sm text-espresso-900 placeholder-espresso-700/40 focus:outline-none focus:ring-2 focus:ring-caramel-500 transition"
+              ></textarea>
+            </div>
+
+            <!-- Anti-Spam Honeypot (Hidden) -->
+            <div class="hidden" aria-hidden="true">
+              <input type="text" name="b_honeypot" id="b_honeypot" tabindex="-1" autocomplete="off">
+            </div>
+
+            <!-- Submit Button & Feedback Status -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+              <p class="text-[11px] text-espresso-600 text-center sm:text-left">
+                🔒 We respect your privacy. Inquiries are handled directly by the café team.
+              </p>
+
+              <button 
+                type="submit" 
+                id="submitBtn" 
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-terracotta-600 hover:bg-terracotta-700 transition shadow-md hover:shadow-glow transform active:scale-98"
+              >
+                <span id="btnText">Send Enquiry</span>
+                <span id="btnSpinner" class="hidden">
+                  <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>
+                </span>
+              </button>
+            </div>
+
+          </form>
+
+          <!-- Result Feedback Box (Dynamic) -->
+          <div id="formFeedback" class="hidden mt-6 p-4 rounded-xl text-xs sm:text-sm leading-relaxed transition-all"></div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-espresso-900 text-cream-200 border-t border-espresso-700 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-espresso-800">
+        
+        <!-- Brand Info Column -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-caramel-600/30 text-caramel-400 flex items-center justify-center">
+              <i data-lucide="coffee" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="font-serif text-2xl font-bold tracking-tight text-cream-50 leading-none">Caffeistaan</span>
+              <span class="block text-[10px] font-semibold tracking-[0.25em] uppercase text-caramel-400 mt-0.5">Coffee &amp; More</span>
+            </div>
+          </div>
+          <p class="text-xs text-cream-300 max-w-sm leading-relaxed">
+            Your everyday escape for great coffee, comforting bites, and good company. Fresh beans, artisanal teas, crisp fries, and sizzling barbecue grills under one warm roof.
+          </p>
+          <div class="flex items-center gap-3 text-cream-400 pt-2">
+            <a href="https://instagram.com" class="p-2 rounded-full bg-espresso-800 hover:text-white hover:bg-terracotta-600 transition" aria-label="Instagram">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="https://facebook.com" class="p-2 rounded-full bg-espresso-800 hover:text-white hover:bg-terracotta-600 transition" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
+            </a>
+            <a href="https://maps.google.com" class="p-2 rounded-full bg-espresso-800 hover:text-white hover:bg-terracotta-600 transition" aria-label="Google Maps">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-caramel-400 mb-4">Explore</h4>
+          <ul class="text-xs space-y-2.5 text-cream-300">
+            <li><a href="#hero" class="hover:text-cream-50 transition">Home</a></li>
+            <li><a href="#menu" class="hover:text-cream-50 transition">Full Menu (11 Types)</a></li>
+            <li><a href="#signatures" class="hover:text-cream-50 transition">Signature Picks</a></li>
+            <li><a href="#about" class="hover:text-cream-50 transition">Our Brand Story</a></li>
+            <li><a href="#experience" class="hover:text-cream-50 transition">Café Atmosphere</a></li>
+            <li><a href="#gallery" class="hover:text-cream-50 transition">Photo Gallery</a></li>
+          </ul>
+        </div>
+
+        <!-- Menu Categories Quick Links -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-caramel-400 mb-4">Menu Specialties</h4>
+          <ul class="text-xs space-y-2.5 text-cream-300">
+            <li><a href="#menu" onclick="filterByCategory('Coffee')" class="hover:text-cream-50 transition">Specialty Coffee</a></li>
+            <li><a href="#menu" onclick="filterByCategory('Burgers')" class="hover:text-cream-50 transition">Gourmet Burgers</a></li>
+            <li><a href="#menu" onclick="filterByCategory('Chicken Tandoori')" class="hover:text-cream-50 transition">Chicken Tandoori</a></li>
+            <li><a href="#menu" onclick="filterByCategory('French Fries')" class="hover:text-cream-50 transition">French Fries</a></li>
+            <li><a href="#menu" onclick="filterByCategory('Brownies')" class="hover:text-cream-50 transition">Fudge Brownies</a></li>
+            <li><a href="#menu" onclick="filterByCategory('Desserts & More')" class="hover:text-cream-50 transition">Desserts &amp; More</a></li>
+          </ul>
+        </div>
+
+        <!-- Visit & Hours -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-caramel-400 mb-4">Location &amp; Hours</h4>
+          <div class="text-xs text-cream-300 space-y-2">
+            <p class="font-medium text-cream-100">Caffeistaan Lounge</p>
+            <p class="text-[11px] leading-relaxed text-cream-300">
+              [Editable Street Address Here]<br>
+              Call: [Editable Café Phone]
+            </p>
+            <div class="pt-2 text-[11px]">
+              <span class="block text-caramel-400 font-semibold">Service Hours:</span>
+              <span>8:00 AM – 11:00 PM Daily</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright & System Info -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-cream-400 gap-3">
+        <p>© <span id="currentYear"></span> Caffeistaan — Coffee &amp; More. All rights reserved.</p>
+        <p class="text-[11px] text-cream-400/80">
+          Designed with ❤️ for Caffeistaan. Ready for production deployment.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX MODAL FOR FOOD GALLERY -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 bg-espresso-950/90 hidden items-center justify-center p-4 backdrop-blur-md transition-opacity duration-300" onclick="closeLightbox()">
+    <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" class="absolute -top-12 right-0 text-cream-100 hover:text-terracotta-500 p-2 text-2xl focus:outline-none" aria-label="Close Preview">
+        <i data-lucide="x" class="w-8 h-8"></i>
+      </button>
+      <img id="lightboxImg" src="" alt="Café item preview" class="max-h-[80vh] w-auto rounded-2xl object-contain shadow-2xl border border-cream-200/20">
+      <p id="lightboxCaption" class="mt-3 text-cream-200 text-sm font-medium tracking-wide"></p>
+    </div>
+  </div>
+
+  <!-- QUICK VIEW NOTICE MODAL -->
+  <div id="quickNoticeModal" class="fixed inset-0 z-50 bg-espresso-950/70 hidden items-center justify-center p-4 backdrop-blur-sm" onclick="closeQuickNotice()">
+    <div class="bg-cream-100 rounded-2xl p-6 max-w-md w-full border border-caramel-500/30 shadow-2xl space-y-4" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i data-lucide="coffee" class="w-5 h-5 text-terracotta-600"></i>
+          <h3 class="font-serif text-lg font-bold text-espresso-900" id="quickNoticeTitle">Item Details</h3>
+        </div>
+        <button onclick="closeQuickNotice()" class="text-espresso-700 hover:text-espresso-950">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <p class="text-xs sm:text-sm text-espresso-700 leading-relaxed" id="quickNoticeBody">
+        To order this item or verify table availability, please visit our café counter or place an enquiry below!
+      </p>
+      <div class="flex justify-end gap-2 pt-2">
+        <button onclick="closeQuickNotice()" class="px-4 py-2 rounded-full text-xs font-semibold text-espresso-800 bg-cream-200 hover:bg-cream-300">Close</button>
+        <a href="#contact" onclick="closeQuickNotice()" class="px-4 py-2 rounded-full text-xs font-semibold text-white bg-terracotta-600 hover:bg-terracotta-700">Enquire Now</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * CAFFEISTAAN CENTRAL DATA CONFIGURATION
+     * The café owner can modify prices, items, categories, contact information,
+     * and address right here in this centralized object.
+     */
+    const CAFFEISTAAN_CONFIG = {
+      brand: {
+        name: "Caffeistaan",
+        tagline: "Coffee & More",
+        subline: "Your everyday escape for great coffee, delicious bites, and good company."
+      },
+      contact: {
+        addressPlaceholder: "Upper market Keller, Shopian",
+        phonePlaceholder: "+91 99106 76661",
+        emailPlaceholder: "hello@caffeistaan.com",
+        instagram: "@caffeistaan"
+      }
+    };
+
+    /**
+     * 11 Categories specified in the brand requirements:
+     * 1. Coffee, 2. Tea, 3. Burgers, 4. Sandwiches, 5. French Fries,
+     * 6. Fish, 7. Barbecue, 8. Chicken Tandoori, 9. Cupcakes,
+     * 10. Brownies, 11. Desserts & More
+     */
+    const CAFFEISTAAN_MENU = [
+      // 1. COFFEE
+      {
+        id: "c1",
+        category: "Coffee",
+        name: "Artisan Caramel Macchiato",
+        desc: "Steamed vanilla milk marked with freshly extracted double espresso and caramel drizzle.",
+        price: "₹80",
+        veg: true,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1572442388796-11668ba67e53?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: "c2",
+        category: "Coffee",
+        name: "Classic Cappuccino",
+        desc: "Balanced equal parts espresso, rich steamed milk, and velvety thick micro-foam.",
+        price: "₹70",
+        veg: true,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: "c3",
+        category: "Coffee",
+        name: "Single Origin Cold Brew",
+        desc: "Slow steeped for 18 hours in cold filtered spring water. Naturally sweet and smooth.",
+        price: "₹90",
+        veg: true,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=500&q=80"
+      },
+
+      // 2. TEA
+      {
+        id: "t1",
+        category: "Tea",
+        name: "Handcrafted Masala Chai",
+        desc: "Slow brewed whole milk tea with freshly crushed cardamom, ginger, cloves, and cinnamon.",
+        price: "₹40",
+        veg: true,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: "t2",
+        category: "Tea",
+        name: "Jasmine Blossom Green Tea",
+        desc: "Delicate whole green tea leaves scented with fragrant fresh jasmine flowers.",
+        price: "₹30",
+        veg: true,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=80"
+      },
+
+      // 3. BURGERS
+      {
+        id: "b1",
+        category: "Burgers",
+        name: "Caffeistaan Signature Burger",
+        desc: "Juicy griddled patty, cheddar melt, crisp lettuce, house sweet-smoky relish in brioche.",
+        price: "₹80",
+        veg: false,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: "b2",
+        category: "Burgers",
+        name: "Crispy Paneer & Herb Burger",
+        desc: "Golden crumbed cottage cheese steak, spiced chipotle mayo, and crunchy garden slaw.",
+        price: "₹80",
+        veg: true,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80"
+      },
+
+      // 4. SANDWICHES
+      {
+        id: "s1",
+        category: "Sandwiches",
+        name: "Toasted Pesto Mozzarella",
+        desc: "Fresh basil pesto, sliced heirloom tomatoes, melted bocconcini on toasted sourdough.",
+        price: "₹110",
+        veg: true,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: "s2",
+        category: "Sandwiches",
+        name: "Smoked Chicken Club",
+        desc: "Triple-decker toasted white bread, roasted chicken breast, crisp lettuce, egg, and mustard sauce.",
+        price: "₹99",
+        veg: false,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=500&q=80"
+      },
+
+      // 5. FRENCH FRIES
+      {
+        id: "f1",
+        category: "French Fries",
+        name: "Truffle & Parmesan Fries",
+        desc: "Golden hand-cut potato fries tossed with white truffle oil, rosemary, and aged grated parmesan.",
+        price: "₹59",
+        veg: true,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: "f2",
+        category: "French Fries",
+        name: "Spicy Peri-Peri Crinkle Fries",
+        desc: "Crispy crinkle-cut fries coated in zesty peri-peri dusting, served with creamy garlic dip.",
+        price: "₹74",
+        veg: true,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?auto=format&fit=crop&w=500&q=80"
+      },
+
+      // 6. FISH
+      {
+        id: "fi1",
+        category: "Fish",
+        name: "Crispy Golden Fish & Chips",
+        desc: "Flaky fish fillet dipped in light crisp batter, served with tartar relish and lemon wedge.",
+        price: "₹119",
+        veg: false,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: "fi2",
+        category: "Fish",
+        name: "Pan-Seared Lemon Butter Fish",
+        desc: "Delicate fish fillet seared in clarified butter, capers, fresh dill, and crushed black peppercorns.",
+        price: "₹109",
+        veg: false,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1534939561126-855b8675edd7?auto=format&fit=crop&w=500&q=80"
+      },
+
+      // 7. BARBECUE
+      {
+        id: "bbq1",
+        category: "Barbecue",
+        name: "Smokey Honey BBQ Chicken Wings",
+        desc: "Crisp glazed wings tossed in rich honey-hickory barbecue sauce with sesame seeds.",
+        price: "₹79",
+        veg: false,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1527477378378-04538e78a0b0?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: "bbq2",
+        category: "Barbecue",
+        name: "Charred Barbecue Paneer Skewers",
+        desc: "Cubes of fresh paneer, bell peppers, and red onions basted with smoky barbecue glaze.",
+        price: "₹85",
+        veg: true,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80"
+      },
+
+      // 8. CHICKEN TANDOORI
+      {
+        id: "ct1",
+        category: "Chicken Tandoori",
+        name: "Traditional Tandoori Murgh",
+        desc: "Chicken quarter roasted in intense clay-oven heat with Kashmiri chili marinade and mint chutney.",
+        price: "₹449",
+        veg: false,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: "ct2",
+        category: "Chicken Tandoori",
+        name: "Malai Chicken Tikka",
+        desc: "Boneless chicken tenders marinated in cardamom, cashew cream, and cheese, lightly charred.",
+        price: "₹499",
+        veg: false,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=500&q=80"
+      },
+
+      // 9. CUPCAKES
+      {
+        id: "cup1",
+        category: "Cupcakes",
+        name: "Red Velvet Cream Cheese",
+        desc: "Soft cocoa sponge topped with silky tangy cream cheese frosting and velvet crumb dusting.",
+        price: "₹69",
+        veg: true,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: "cup2",
+        category: "Cupcakes",
+        name: "Salted Caramel Vanilla Cupcake",
+        desc: "Madagascar vanilla crumb topped with caramel buttercream swirl and Himalayan pink salt.",
+        price: "₹39",
+        veg: true,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=500&q=80"
+      },
+
+      // 10. BROWNIES
+      {
+        id: "br1",
+        category: "Brownies",
+        name: "Fudgy Belgian Chocolate Brownie",
+        desc: "Ultra dense, crackly top brownie loaded with 70% dark Belgian cocoa and walnut bits.",
+        price: "₹79",
+        veg: true,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: "br2",
+        category: "Brownies",
+        name: "Sizzling Brownie with Vanilla",
+        desc: "Warm cast-iron skillet brownie drenched in hot bubbling chocolate sauce with cold ice cream.",
+        price: "₹69",
+        veg: true,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?auto=format&fit=crop&w=500&q=80"
+      },
+
+      // 11. DESSERTS & MORE
+      {
+        id: "dm1",
+        category: "Desserts & More",
+        name: "Classic Italian Tiramisu",
+        desc: "Espresso soaked savoiardi ladyfingers layered with whipped mascarpone and dark cocoa powder.",
+        price: "₹49",
+        veg: true,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: "dm2",
+        category: "Desserts & More",
+        name: "Caramel Affogato",
+        desc: "A generous scoop of artisan Madagascar vanilla gelato drowned in a hot shot of espresso.",
+        price: "₹49",
+        veg: true,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1594998893017-36147cbcae05?auto=format&fit=crop&w=500&q=80"
+      }
+    ];
+
+    const ALL_CATEGORIES = [
+      "All",
+      "Coffee",
+      "Tea",
+      "Burgers",
+      "Sandwiches",
+      "French Fries",
+      "Fish",
+      "Barbecue",
+      "Chicken Tandoori",
+      "Cupcakes",
+      "Brownies",
+      "Desserts & More"
+    ];
+
+    let currentCategory = "All";
+    let searchQuery = "";
+    let vegOnly = false;
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialize dynamic copyright year
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+      // Render Category filter tabs
+      renderCategoryTabs();
+
+      // Render Menu Items
+      renderMenuItems();
+
+      // Setup Search and Veg filter inputs
+      const searchInput = document.getElementById("menuSearchInput");
+      const vegCheckbox = document.getElementById("vegOnlyFilter");
+      const resetBtn = document.getElementById("resetFilterBtn");
+
+      searchInput.addEventListener("input", function(e) {
+        searchQuery = e.target.value.toLowerCase().trim();
+        renderMenuItems();
+      });
+
+      vegCheckbox.addEventListener("change", function(e) {
+        vegOnly = e.target.checked;
+        renderMenuItems();
+      });
+
+      resetBtn.addEventListener("click", function() {
+        resetMenuFilters();
+      });
+
+      // Mobile Menu Toggle
+      const mobileBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      mobileBtn.addEventListener("click", function() {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu on link click
+      document.querySelectorAll(".mobile-nav-link").forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Initialize Lucide icons
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+
+    /**
+     * Render the horizontal category tabs
+     */
+    function renderCategoryTabs() {
+      const container = document.getElementById("categoryTabs");
+      container.innerHTML = "";
+
+      ALL_CATEGORIES.forEach(cat => {
+        const isActive = cat === currentCategory;
+        const btn = document.createElement("button");
+        btn.className = `px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
+          isActive 
+            ? "bg-espresso-800 text-cream-100 shadow-md" 
+            : "bg-cream-50 text-espresso-800 hover:bg-cream-200 border border-caramel-500/20"
+        }`;
+        btn.textContent = cat;
+        btn.onclick = () => filterByCategory(cat);
+        container.appendChild(btn);
+      });
+    }
+
+    /**
+     * Filter items by category
+     */
+    function filterByCategory(categoryName) {
+      currentCategory = categoryName;
+      renderCategoryTabs();
+      renderMenuItems();
+
+      // Scroll to menu section smoothly if clicked from outside
+      const menuSection = document.getElementById("menu");
+      if (menuSection) {
+        const yOffset = -90;
+        const y = menuSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+
+    /**
+     * Reset all filters
+     */
+    function resetMenuFilters() {
+      currentCategory = "All";
+      searchQuery = "";
+      vegOnly = false;
+      document.getElementById("menuSearchInput").value = "";
+      document.getElementById("vegOnlyFilter").checked = false;
+      renderCategoryTabs();
+      renderMenuItems();
+    }
+
+    /**
+     * Render Menu Items based on category, search, and veg filter
+     */
+    function renderMenuItems() {
+      const grid = document.getElementById("menuItemsGrid");
+      const emptyState = document.getElementById("menuEmptyState");
+      grid.innerHTML = "";
+
+      const filtered = CAFFEISTAAN_MENU.filter(item => {
+        // Category check
+        const matchCategory = (currentCategory === "All") || (item.category === currentCategory);
+        
+        // Search query check
+        const matchSearch = !searchQuery || 
+          item.name.toLowerCase().includes(searchQuery) || 
+          item.desc.toLowerCase().includes(searchQuery) ||
+          item.category.toLowerCase().includes(searchQuery);
+
+        // Veg only check
+        const matchVeg = !vegOnly || item.veg === true;
+
+        return matchCategory && matchSearch && matchVeg;
+      });
+
+      if (filtered.length === 0) {
+        emptyState.classList.remove("hidden");
+      } else {
+        emptyState.classList.add("hidden");
+
+        filtered.forEach(item => {
+          const card = document.createElement("div");
+          card.className = "bg-cream-50 rounded-2xl overflow-hidden border border-caramel-500/20 shadow-sm hover:shadow-warm transition duration-300 flex flex-col justify-between group";
+
+          card.innerHTML = `
+            <div class="relative aspect-[16/10] overflow-hidden bg-espresso-800">
+              <img 
+                src="${item.image}" 
+                alt="${item.name}" 
+                class="w-full h-full object-cover img-zoom" 
+                loading="lazy"
+                onerror="this.src='https://placehold.co/600x400/281811/FAF7F2?text=${encodeURIComponent(item.name)}'"
+              >
+              <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                <span class="bg-espresso-900/80 text-cream-100 text-[10px] font-medium px-2 py-0.5 rounded backdrop-blur">
+                  ${item.category}
+                </span>
+                ${item.popular ? `<span class="bg-terracotta-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">Popular</span>` : ''}
+              </div>
+            </div>
+
+            <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-1">
+                  <h3 class="font-serif text-base sm:text-lg font-bold text-espresso-900 group-hover:text-terracotta-600 transition">
+                    ${item.name}
+                  </h3>
+                  <div class="shrink-0 mt-1">
+                    ${item.veg ? `
+                      <div class="w-3.5 h-3.5 border border-green-600 flex items-center justify-center p-0.5 rounded-sm" title="Vegetarian">
+                        <div class="veg-dot"></div>
+                      </div>
+                    ` : `
+                      <div class="w-3.5 h-3.5 border border-red-600 flex items-center justify-center p-0.5 rounded-sm" title="Non-Vegetarian">
+                        <div class="nonveg-triangle"></div>
+                      </div>
+                    `}
+                  </div>
+                </div>
+                <p class="text-xs text-espresso-700/80 leading-relaxed mb-4">
+                  ${item.desc}
+                </p>
+              </div>
+
+              <div class="flex items-center justify-between pt-3 border-t border-caramel-500/20 mt-auto">
+                <div>
+                  <span class="text-xs text-espresso-500 block text-[10px] uppercase font-mono">Sample Price</span>
+                  <span class="font-bold text-sm text-espresso-900">${item.price}</span>
+                </div>
+                <button 
+                  onclick="quickOrderNotice('${item.name.replace(/'/g, "\\'")}')" 
+                  class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-cream-200 text-espresso-900 hover:bg-terracotta-600 hover:text-white transition duration-200 shadow-sm"
+                >
+                  Quick View
+                </button>
+              </div>
+            </div>
+          `;
+
+          grid.appendChild(card);
+        });
+      }
+
+      // Re-trigger icon parsing for dynamic components
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    /**
+     * Lightbox preview handler
+     */
+    function openLightbox(src, caption) {
+      const modal = document.getElementById("lightboxModal");
+      const img = document.getElementById("lightboxImg");
+      const cap = document.getElementById("lightboxCaption");
+
+      img.src = src;
+      cap.textContent = caption || "Caffeistaan Dish & Atmosphere Preview";
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById("lightboxModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    /**
+     * Quick Item Notice Modal
+     */
+    function quickOrderNotice(itemName) {
+      const modal = document.getElementById("quickNoticeModal");
+      const title = document.getElementById("quickNoticeTitle");
+      const body = document.getElementById("quickNoticeBody");
+
+      title.textContent = itemName;
+      body.textContent = `Interested in ${itemName}? Please check our counter on your visit or submit a quick booking/order enquiry below. All prices and recipes can be customized in CAFFEISTAAN_CONFIG.`;
+      
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeQuickNotice() {
+      const modal = document.getElementById("quickNoticeModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    // Keyboard support for ESC key
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        closeLightbox();
+        closeQuickNotice();
+      }
+    });
+
+    /**
+     * Handle Enquiry Form Submission with validation and real-world feedback
+     */
+    function handleEnquirySubmit(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("custName").value.trim();
+      const contact = document.getElementById("custContact").value.trim();
+      const type = document.getElementById("enquiryType").value;
+      const guests = document.getElementById("guestsCount").value;
+      const message = document.getElementById("custMessage").value.trim();
+      const honeypot = document.getElementById("b_honeypot").value;
+
+      const errName = document.getElementById("errName");
+      const errContact = document.getElementById("errContact");
+      const feedback = document.getElementById("formFeedback");
+      const submitBtn = document.getElementById("submitBtn");
+      const btnText = document.getElementById("btnText");
+      const btnSpinner = document.getElementById("btnSpinner");
+
+      // Reset errors
+      errName.classList.add("hidden");
+      errContact.classList.add("hidden");
+      feedback.classList.add("hidden");
+
+      // Spam Bot trap
+      if (honeypot) {
+        return; // silently discard bot submissions
+      }
+
+      let hasError = false;
+
+      if (!name) {
+        errName.classList.remove("hidden");
+        hasError = true;
+      }
+
+      if (!contact || contact.length < 5) {
+        errContact.classList.remove("hidden");
+        hasError = true;
+      }
+
+      if (hasError) return;
+
+      // Send the enquiry to the caf� team through FormSubmit.
+      submitBtn.disabled = true;
+      btnText.textContent = "Submitting...";
+      btnSpinner.classList.remove("hidden");
+      const emailMatch = contact.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+
+      (async () => {
+        try {
+          const response = await fetch("https://formsubmit.co/ajax/vayoraoffice@gmail.com", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({
+              _subject: `New Caffeistaan Enquiry - ${type.replaceAll("_", " ").toUpperCase()}`,
+              _template: "table",
+              ...(emailMatch ? { _replyto: emailMatch[0] } : {}),
+              name,
+              contact,
+              enquiryType: type.replaceAll("_", " "),
+              guests: guests || "Not specified",
+              message: message || "No additional message provided."
+            })
+          });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok || result.success === "false" || result.success === false) {
+            throw new Error(result.message || "The enquiry could not be sent.");
+          }
+
+          submitBtn.disabled = false;
+          btnText.textContent = "Send Enquiry";
+          btnSpinner.classList.add("hidden");
+          feedback.className = "mt-6 p-4 rounded-xl text-xs sm:text-sm leading-relaxed transition-all bg-emerald-50 text-emerald-900 border border-emerald-200";
+          feedback.innerHTML = `
+            <div class="flex items-start gap-3">
+              <span class="text-emerald-600 text-lg">?</span>
+              <div>
+                <strong class="font-bold">Thank you, ${name}!</strong>
+                <p class="mt-0.5">Your ${type.replaceAll('_', ' ')} enquiry (party size: ${guests}) has been sent to our caf� team.</p>
+              </div>
+            </div>
+          `;
+          feedback.classList.remove("hidden");
+          document.getElementById("enquiryForm").reset();
+        } catch (error) {
+          submitBtn.disabled = false;
+          btnText.textContent = "Send Enquiry";
+          btnSpinner.classList.add("hidden");
+          feedback.className = "mt-6 p-4 rounded-xl text-xs sm:text-sm leading-relaxed transition-all bg-red-50 text-red-900 border border-red-200";
+          feedback.textContent = "Sorry, we couldn't send your enquiry. Please try again or contact the caf� directly.";
+          feedback.classList.remove("hidden");
+          console.error("Enquiry submission failed:", error);
+        }
+      })();
+    }
+  </script>
+</body>
+</html>
