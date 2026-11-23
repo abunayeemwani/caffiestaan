@@ -984,10 +984,17 @@
       modal.classList.remove("flex");
     }
 
-    function triggerAppDownload(e) {
-      if (e) e.preventDefault();
-      alert("Downloading the official Caffeistaan App APK. Please open and install to start ordering!");
-    }
+    const APK_DOWNLOAD_URL = "./app-release.apk";
+
+  function triggerAppDownload(e) {
+    if (e) e.preventDefault();
+    const link = document.createElement("a");
+    link.href = APK_DOWNLOAD_URL;
+    link.setAttribute("download", "Caffeistaan.apk");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 
     document.addEventListener("keydown", function(e) {
       if (e.key === "Escape") closeItemDetail();
